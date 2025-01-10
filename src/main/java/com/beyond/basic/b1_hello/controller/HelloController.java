@@ -246,10 +246,26 @@ public class HelloController {
     public String axiosJsonFileView(){
         return "/axios-json-file-view";
     }
-
-    @PostMapping
+    //      data 형식: ?hello={name:"hongildong", email:"hong@naver.com"}&photo=이미지
+    @PostMapping("/axios-json-file-view")
     @ResponseBody
-    public String axiosJsonFileViewPost(){
+    public String axiosJsonFileViewPost(
+//            @RequestParam(value = "hello") String helloString,
+//            @RequestParam(value = "photo") MultipartFile photo
+
+            //      ---------------------------RequestPart------------------는 json과 file 함께 처리할 때 많이 사용
+            @RequestPart("hello") Hello hello,
+            @RequestPart("photo") MultipartFile photo
+    ) throws JsonProcessingException {
+        //      -------------------RequestParam-----------------------------으로 받을 때
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        Hello h1 = objectMapper.readValue(helloString, Hello.class);
+//        System.out.println(h1);
+//        System.out.println(photo.getOriginalFilename());
+
+        //      -----------------RequestPart-----------------------로 받을 때
+        System.out.println(hello);
+        System.out.println(photo.getOriginalFilename());
         return "OK";
     }
 }
