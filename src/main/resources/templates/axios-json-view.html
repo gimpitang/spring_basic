@@ -23,6 +23,7 @@
             const email = document.getElementById("email").value;
             const data = {name, email};
             await axios.post("http://localhost:8080/hello/axios-json-view", data);
+<!--             await axios.post 여기에서 자동으로 (json으로 형변환)직렬화를 진행함.-->
 
         }
     </script>
