@@ -110,7 +110,8 @@ public class HelloController {
         return "helloworld2";
     }
 
-    //      1/10수업 시작
+    //      -------------------------------1/10수업 시작-----------------------------------
+
     //      post data 받는 방식 form-tag, form-js, json
     //      post data 받는 방법에 대한 case
 
@@ -162,7 +163,6 @@ public class HelloController {
 
     public String axiosFormPost(Hello hello){
         System.out.println(hello);
-
         return "ok";
     }
 
@@ -240,7 +240,7 @@ public class HelloController {
     }
 
     //    case 8. json과 file 처리
-    //      file g형식은 기본적으로 form 형식을 통해 처리한다.
+    //      file 형식은 기본적으로 form 형식을 통해 처리한다.
     //      그래서 json과 file을 동시에 처리하려면, form형식 안에 json과 파일을 넣어 처리한다.
     @GetMapping("/axios-json-file-view")
     public String axiosJsonFileView(){
