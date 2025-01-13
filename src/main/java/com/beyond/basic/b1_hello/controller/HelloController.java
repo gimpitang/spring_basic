@@ -253,7 +253,7 @@ public class HelloController {
 //            @RequestParam(value = "hello") String helloString,
 //            @RequestParam(value = "photo") MultipartFile photo
 
-            //      ---------------------------RequestPart------------------는 json과 file 함께 처리할 때 많이 사용
+            //      ---------------------------RequestPart------------------는 json과 file 함께 처리할 때 많이 사용. 이거쓰면 프론트가 복잡해짐. 근데 reference가 많음.
             @RequestPart("hello") Hello hello,
             @RequestPart("photo") MultipartFile photo
     ) throws JsonProcessingException {
