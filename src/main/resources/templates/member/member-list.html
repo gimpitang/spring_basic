@@ -19,10 +19,11 @@
       </tr>
     </thead>
     <tbody>
+<!--    tr이 하나의 for문이라고 생각하기-->
       <tr th:each = "member : ${memberList}">
-        <td></td>
-        <td></td>
-        <td></td>
+        <td th:text = ${member.id}></td>
+        <td th:text = ${member.name}></td>
+        <td th:text = ${member.email}></td>
 
 
       </tr>

@@ -8,6 +8,7 @@ import java.util.*;
 @Repository
 public class MemberMemoryRepository {
     private List<Member> memberList = new ArrayList<>();
+    public static Long id =1L;
 
     public List<Member> findAll(){
         return this.memberList;
@@ -15,5 +16,6 @@ public class MemberMemoryRepository {
 
     public void save(Member member){
         this.memberList.add(member);
+        id++;
     }
 }

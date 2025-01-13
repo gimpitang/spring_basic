@@ -56,8 +56,8 @@ public class MemberController {
 
     @PostMapping("/create")
     public String memberCreatePost (MemberCreateDto memberCreateDto){
-        System.out.println(memberCreateDto);
-
+        //      서비스에게 객체를 넘기게 한다.
+        memberService.save(memberCreateDto);
 //        화면 리턴이 아닌 url 재호출을 통해 redirect
         return "redirect:/member/list";
     }

@@ -1,6 +1,7 @@
 package com.beyond.basic.b2_board.service;
 
 import com.beyond.basic.b2_board.domain.Member;
+import com.beyond.basic.b2_board.dtos.MemberCreateDto;
 import com.beyond.basic.b2_board.dtos.MemberListRes;
 
 import com.beyond.basic.b2_board.repository.MemberMemoryRepository;
@@ -22,5 +23,12 @@ public class MemberService {
         }
         return memberListRes;
 
+    }
+
+    public void save(MemberCreateDto memberCreateDto){
+        Member member = new Member(MemberMemoryRepository.id ,memberCreateDto.getName(),
+                memberCreateDto.getEmail(), memberCreateDto.getPassword());
+
+        memberMemoryRepository.save(member);
     }
 }
