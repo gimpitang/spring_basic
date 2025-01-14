@@ -21,9 +21,11 @@
     <tbody>
 <!--    tr이 하나의 for문이라고 생각하기-->
       <tr th:each = "member : ${memberList}">
-        <td th:text = ${member.id}></td>
-        <td th:text = ${member.name}></td>
-        <td th:text = ${member.email}></td>
+          <td th:text = ${member.id}></td>
+          <td th:text = ${member.name}></td>
+          <td th:text = ${member.email}></td>
+<!--          클릭하면 24줄에 있는 id를 쓰겠다!-->
+          <td><a th:href="@{/member/detail/{id}(id=${member.id})}">상세조회</a></td>
 
 
       </tr>

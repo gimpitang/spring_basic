@@ -18,4 +18,24 @@ public class MemberMemoryRepository {
         this.memberList.add(member);
         id++;
     }
+
+    public Optional<Member> findById(Long id){
+        Member member =null;
+        for(Member m : memberList){
+            if(m.getId().equals(id)){
+                member =m;
+            }
+        }
+        return Optional.ofNullable(member);
+    }
+
+    public Optional<Member> findByEmail(String email){
+        Member member =null;
+        for(Member m : memberList){
+            if(m.getEmail().equals(email)){
+                member =m;
+            }
+        }
+        return Optional.ofNullable(member);
+    }
 }
