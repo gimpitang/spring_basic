@@ -93,6 +93,9 @@ public class MemberController {
         }catch (IllegalArgumentException e){
             model.addAttribute("errorMessage", e.getMessage());
             return "/member/member-error";
+        }catch (RuntimeException e){
+            model.addAttribute("errorMessage", e.getMessage());
+            return "/member/member-error";
         }
     }
 
