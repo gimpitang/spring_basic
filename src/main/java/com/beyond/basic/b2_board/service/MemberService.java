@@ -20,6 +20,8 @@ import java.util.stream.Collectors;
 
 public class MemberService {
     @Autowired
+//    private MemberMemoryRepository memberMemoryRepository;
+    //      원래 MemberMemoryRepository였는데 Jdbc로 넘어가면서 아래로 바꿈
     private MemberJdbcRepository memberRepository;
 
 

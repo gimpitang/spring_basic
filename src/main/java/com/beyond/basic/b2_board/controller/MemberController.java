@@ -53,8 +53,8 @@ public class MemberController {
 
     //      회원 목록 조회
     @GetMapping("/list")
-    public String memberList(Model model){
-        List<MemberListRes> memberListResList= memberService.findAll();
+    public String memberList(Model model){ //여기에 있는 memberList이거가 +2 줄의 "memberList"이게 된거임
+        List<MemberListRes> memberListResList= memberService.findAll(); //여기에 있는 memberListResList가 밑의 memberListResList
         model.addAttribute("memberList",memberListResList);
         return "/member/member-list";
     }
