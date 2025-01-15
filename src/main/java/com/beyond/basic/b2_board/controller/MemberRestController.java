@@ -47,8 +47,6 @@ public class MemberRestController {
     public String memberCreatePost (@RequestBody MemberCreateDto memberCreateDto){
             memberService.save(memberCreateDto);
             return "OK";
-
-
     }
 
 //      비밀번호 변경
