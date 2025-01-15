@@ -46,6 +46,14 @@ public class Member {
         this.password = password;
 
     }
+    public Member(String email, String password){
+        this.email = email;
+        this.password = password;
+    }
+
+    public void updatePw(String newPassword) {
+        this.password = newPassword;
+    }
 
 
     //      findAll() 간소화 하기 위한 작업 아래 주석 코드를 안만들게 하기 위함임.
