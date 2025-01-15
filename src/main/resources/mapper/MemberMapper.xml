@@ -1,0 +1,20 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+
+<!--<mapper namespace="com.beyond.basic.b2_board.repository.MemberMybatisRepository">-->
+<!--&lt;!&ndash;    레파지토리에 있는 메서드 명을 id에 토씨하나 틀리지 않고 써야함.&ndash;&gt;-->
+<!--    <insert id="save" parameterType="com.beyond.basic.b2_board.domain.Member">-->
+<!--&lt;!&ndash; #{name}, #{email}, #{password}이게 어떤 타입인지 모르기 때문에 위에 parameterType를 쓴다.&ndash;&gt;-->
+<!--        insert into member(name, email, password) values (#{name}, #{email}, #{password});-->
+<!--    </insert>-->
+<!--    <select id="findAll" resultType="com.beyond.basic.b2_board.domain.Member">-->
+<!--        select * from member;-->
+<!--    </select>-->
+<!--    <select id="findById" resultType="com.beyond.basic.b2_board.domain.Member" >-->
+<!--        select * from member where id=#{id};-->
+<!--    </select>-->
+<!--    <select id="findByEmail" resultType="com.beyond.basic.b2_board.domain.Member">-->
+<!--        select * from member where email=#{email};-->
+<!--    </select>-->
+<!--</mapper>-->

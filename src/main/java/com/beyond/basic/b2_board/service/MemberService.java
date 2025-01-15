@@ -5,8 +5,11 @@ import com.beyond.basic.b2_board.dtos.MemberCreateDto;
 import com.beyond.basic.b2_board.dtos.MemberListRes;
 
 import com.beyond.basic.b2_board.dtos.MemberDetailDto;
-import com.beyond.basic.b2_board.repository.MemberJdbcRepository;
+//import com.beyond.basic.b2_board.repository.MemberJdbcRepository;
+import com.beyond.basic.b2_board.repository.MemberJpaRepository;
 import com.beyond.basic.b2_board.repository.MemberMemoryRepository;
+//import com.beyond.basic.b2_board.repository.MemberMybatisRepository;
+import com.beyond.basic.b2_board.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +25,13 @@ public class MemberService {
     @Autowired
 //    private MemberMemoryRepository memberMemoryRepository;
     //      원래 MemberMemoryRepository였는데 Jdbc로 넘어가면서 아래로 바꿈
-    private MemberJdbcRepository memberRepository;
+//    private MemberJdbcRepository memberRepository;
+    //      아래는 마이바티스 전용
+//    private MemberMybatisRepository memberRepository;
+    //      아래는 Jpa 일반 전용
+//    private MemberJpaRepository memberRepository;
+    //      아래는 Jpa 인터페이스 전용
+    private MemberRepository memberRepository;
 
 
     public List<MemberListRes> findAll(){
