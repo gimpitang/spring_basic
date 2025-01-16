@@ -14,6 +14,7 @@ import com.beyond.basic.b2_board.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.*;
@@ -68,6 +69,18 @@ public class MemberService {
         memberRepository.save(memberCreateDto.toEntity());
     }
 
+    public Member save2(MemberCreateDto memberCreateDto) throws IllegalArgumentException{
+        if(memberRepository.findByEmail(memberCreateDto.getEmail()).isPresent() ){
+            throw new IllegalArgumentException("이미 존재하는 이메일 입니다.");
+        }
+        if (memberCreateDto.getPassword().length()<8){
+            throw new IllegalArgumentException("비밀번호가 너무 짧습ㄴ디ㅏ.");
+        }
+
+        Member member = memberRepository.save(memberCreateDto.toEntity());
+        return member;
+    }
+
     public MemberDetailDto findById(Long id) throws NoSuchElementException, RuntimeException{
 //        Optional<Member> optionalMember = memberMemoryRepository.findById(id);
 //        Member member = optionalMember.orElseThrow(()->new NoSuchElementException("없는 ID 입니다."));
@@ -76,7 +89,7 @@ public class MemberService {
 //
 //        return dto;
 
-        return memberRepository.findById(id).orElseThrow(()-> new NoSuchElementException("없는 아이디에요")).detailFromEntity();
+        return memberRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("없는 아이디에요")).detailFromEntity();
     }
 
     public void updatePw(MemberUpdateDto memberUpdateDto) {
@@ -85,7 +98,14 @@ public class MemberService {
         member.updatePw(memberUpdateDto.getNewPassword());
         //      기존객체를 조회 후에 다시 save할 경우에는 insert가 아니라 update 쿼리 실행.
         memberRepository.save(member);
+        //      사실 윗줄이 없어도 되긴 하는데 영속성때문이다...신기함ㅎㅎ
     }
 
+    public void delete(@PathVariable Long id) throws EntityNotFoundException {
+//        memberRepository.deleteById(id);
+        Member member =memberRepository.findById(id).orElseThrow(()-> new EntityNotFoundException());
+
+        memberRepository.delete(member);
+    }
 
 }
