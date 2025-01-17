@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CommomDto {
+public class CommonDto {
     private int status_code;
     private String status_message;
     private Object result;

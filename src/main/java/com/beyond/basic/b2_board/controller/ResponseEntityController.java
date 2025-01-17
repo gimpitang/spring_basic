@@ -1,7 +1,7 @@
 package com.beyond.basic.b2_board.controller;
 
 import com.beyond.basic.b2_board.domain.Member;
-import com.beyond.basic.b2_board.dtos.CommomDto;
+import com.beyond.basic.b2_board.dtos.CommonDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +48,6 @@ public class ResponseEntityController {
         Member member = new Member("hongildong", "hong@naver.com","12341234");
         //      header: 상태코드 + 상태메시지, body : 상태코드, 상태메시지, 객체(json)
         return new ResponseEntity<>
-                (new CommomDto(HttpStatus.OK.value(),"member is found",member), HttpStatus.OK);
+                (new CommonDto(HttpStatus.OK.value(),"member is found",member), HttpStatus.OK);
     }
 }
